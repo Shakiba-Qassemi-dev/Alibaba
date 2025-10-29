@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: iransans;
+  src: url(../../public/font/Almarai-Regular.ttf);
+}
+body{
+  font-family: iransans;
+}
+.hover:hover{
+  >div{
+    display: flex;
+  }
+}
+
+.bg{
+  background-image: url('/images/back1.webp');
+}
+.h{
+  height: 70px !important;
+}
+.r{
+  transform: rotate(180deg);
+}
+.acc{
+  >li{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 1px solid gray;
+    >h2{
+      cursor: pointer;
+      >span{
+        transition: 0.4s;
+      }
+    }
+    >p{
+      height: 0;
+      overflow: hidden;
+      display: flex;
+      transition: 1s;
+      color: blue;
+    }
+  }
+}
+.modal{
+  width: 100%;
+  height: 100vh;
+  transition: 0.4s;
+  position: fixed;
+  top: -100%;
+  left: 0;
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+  opacity: 0;
+}
+  .modal.active {
+    top: 0;
+    opacity: 1;
+  }
+  
+  .modal > div {
+    width: 400px;
+    height: 400px;
+    background-color: rgb(63, 63, 63);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+  }
+  .modal > div > span {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 18px;
+  }
+
+
+  .footitem{
+    width: 150px;
+    height: 150px;    
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 30px;
+    &:hover{
+        >img, &::before{
+            animation-play-state: paused;
+        }
+        >a{
+            left: -30%;
+        }
+       
+    }
+    
+    >a{
+        color: rgb(99, 17, 17);
+        text-decoration: none;
+        position: absolute;
+        left: 50%;
+        font-size: 10px;
+        transition: 1.5s;
+        &:nth-of-type(1){
+            top: 20%;
+        }
+        &:nth-of-type(2){
+            top: 40%;
+            
+        }
+        &:nth-of-type(3){
+            top: 60%;
+        }
+        &:nth-of-type(4){
+            top: 80%;
+        }
+
+
+    }
+
+    >img, &::before{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+       
+    }
+    &::before{
+        content: '';
+        background-color: rgb(99, 17, 17);
+        animation: back1  ease-out infinite alternate 5s;
+    }
+    >img{
+        animation: back2  ease-out infinite alternate 5s;
+    }
+    
+}
+@keyframes back1{
+    0%{border-radius: 56% 44% 47% 53% / 20% 24% 76% 80%   }
+    50%{border-radius: 56% 44% 68% 32% / 58% 72% 28% 42%  }
+    100%{border-radius:81% 19% 23% 77% / 33% 69% 31% 67%  ;}
+}
+@keyframes back2{
+    0%{border-radius: 81% 19% 23% 77% / 33% 69% 31% 67%  ;}
+    50%{border-radius: 56% 44% 47% 53% / 20% 24% 76% 80%  }
+    100%{border-radius: 56% 44% 68% 32% / 58% 72% 28% 42%  }        
+}
+
+.ham{
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-evenly;
+  overflow: hidden;
+>span{
+      width: 50px;
+      height: 2px;
+      display: block;
+      background-color: black;
+      transition: 1s;
+      transform-origin: left;
+
+  }
+}
+.items{
+  width: 100%;
+  background-color: white;
+  flex-direction: column;
+  gap: 15px;
+  position: fixed;
+  right: -700px;
+  top: 90px ;
+   transition: 1s;
+   z-index: 50;
+   padding: 15px;
+   
+  >li{
+      text-align: right;
+      padding-right: 10px;
+  }
+}
+
+.perspective {
+  perspective: 1000px;
+}
+.card {
+  transform-style: preserve-3d;
+}
